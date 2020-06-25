@@ -53,6 +53,19 @@
 			<input id="damage"><br /><br />
 			<label for="strenght">You strenght:</label>
 			<input id="strenght"><br /><br />
+			<label for="sharp">Choose a sharpness:</label>
+
+			<select name="sharpness" id="sharp">
+				<option value="0">NONE</option>
+				<option value="5">I</option>
+				<option value="10">II</option>
+				<option value="15">III</option>
+				<option value="20">IV</option>
+				<option value="25">V</option>
+				<option value="30">VI</option>
+		
+			</select>
+		
 		</form>
 		<p>No crit damage:</p>
 		<p id="eq"></p>
@@ -65,7 +78,10 @@
 	
 	var dmg = document.damage.damage.value
 	var str = document.damage.strenght.value
-	var eq = (parseInt(dmg, 10) + 5 + (parseInt(str, 10) / 5)) * (1 + (parseInt(str, 10) / 100))
+	var sharp = document.damage.sharp.value
+	var eq1 = (parseInt(dmg, 10) + 5 + (parseInt(str, 10) / 5)) * (1 + (parseInt(str, 10) / 100))
+	var eq2 = eq1 / 100
+	var eq = eq1 + eq2 * parseInt(sharp, 10)
 	document.getElementById("eq").innerHTML = eq;
 	
 	}
